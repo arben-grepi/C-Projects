@@ -1,0 +1,62 @@
+﻿<Window x:Class="StudentRegister2._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentRegister2._0"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="335" Width="425">
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <Menu>
+                <MenuItem Header="File">
+                    <MenuItem Header="Lista..." Click="ShowStudentList"/>
+                    <MenuItem Header="Close" Click="CloseClick" />
+                </MenuItem>
+                <MenuItem Header="About">
+                    <MenuItem Header="About">
+                        <MenuItem Header="Version info..." Click="VersionClick"/>
+                    </MenuItem>
+                </MenuItem>
+
+            </Menu>
+            <ToolBar>
+                <Button x:Name="Alkuun" Content="&lt;&lt;" Width="25" Click="clickAlkuun"/>
+                <Button x:Name="Taakse" Content="&lt;" Width="25" Click="clickTaakse"/>
+                <Separator/>
+                <Button x:Name="Eteenpäin" Content="&gt;" Width="25" Click="clickEteenpäin"/>
+                <Button x:Name="Loppuun" Content="&gt;&gt;" Width="25" Click="clickLoppuun"/>
+            </ToolBar>
+        </StackPanel>
+        <Canvas Grid.Row="1">
+            <Label Content="Numero" Canvas.Left="52" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Content="Nimi" Canvas.Left="52" Canvas.Top="74" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Content="Vuosi" Canvas.Left="52" Canvas.Top="105" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Content="Op" Canvas.Left="52" Canvas.Top="136" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+            <TextBox x:Name="txtNumber" TextWrapping="Wrap" Width="120" Canvas.Left="155" Canvas.Top="47" Text="{Binding Number}" TextChanged="txtNumber_TextChanged"/>
+            <TextBox x:Name="txtName" TextWrapping="Wrap" Width="120" Canvas.Left="155" Canvas.Top="78" Text="{Binding Name}" TextChanged="txtName_TextChanged" />
+            <ComboBox SelectedItem ="{Binding StartYear}" x:Name="comYears" Canvas.Left="157" Canvas.Top="108" Height="20" Width="118"/>
+            <TextBox x:Name="txtOp" TextWrapping="Wrap" Width="120" Canvas.Left="155" Canvas.Top="140" Text="{Binding Credits}"/>
+            <Button x:Name="btnAdd" Content="Add" Canvas.Left="300" Canvas.Top="138" Click="btnAdd_Click"/>
+            <Label Content="Sukupuoli" Canvas.Left="52" Canvas.Top="167" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ComboBox SelectedValue="{Binding Gender}"
+                      DisplayMemberPath="Description"
+                      SelectedValuePath="ID"
+                      x:Name="comGender" 
+                      Canvas.Left="157" Canvas.Top="171" Width="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        </Canvas>
+
+ 
+
+
+    </Grid>
+</Window>

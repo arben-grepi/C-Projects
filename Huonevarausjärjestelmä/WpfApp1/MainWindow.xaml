@@ -1,0 +1,97 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="VuokraTilat Oy" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="31*"></RowDefinition>
+            <RowDefinition Height="115*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Menu FontFamily="Calibri" FontSize="16" BorderThickness="1" HorizontalAlignment="Center" Margin="0,42,0,40">
+            <MenuItem Header="Toimitilojen hallinta" Height="40"></MenuItem>
+            <MenuItem Header="Laskujen hallinta" Height="40"></MenuItem>
+            <MenuItem Header="Asiakasrekisteri" Height="40"></MenuItem>
+            <MenuItem Header="Lisäpalvelut" Height="40"></MenuItem>
+        </Menu>
+
+
+        <Canvas Background="WhiteSmoke" Margin="15,52,15,25" Grid.Row="1">
+            <GroupBox Grid.Row="1" Height="292"
+                  Width="321"
+                  Header="Tee varaus"
+                  Canvas.Left="344" Canvas.Top="26"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center">
+
+                <Canvas Height="241">
+                    <Label Content="Valitse varattava tila" HorizontalAlignment="Left" Width="144" VerticalAlignment="Top" Canvas.Left="10"/>
+                    <Label Content="Varauksen aloituspäivä" HorizontalAlignment="Left" Width="145" Canvas.Left="10" Canvas.Top="38" VerticalAlignment="Center"/>
+                    <Label Content="Varauksen lopetuspäivä" HorizontalAlignment="Left" Width="144" Canvas.Left="10" Canvas.Top="74" VerticalAlignment="Center"/>
+                    <DatePicker VerticalAlignment="Top" Width="120" Canvas.Left="168" Canvas.Top="76"/>
+                    <DatePicker VerticalAlignment="Top" Width="120" Canvas.Left="168" Canvas.Top="40"/>
+                    <ComboBox VerticalAlignment="Top" Width="120" Canvas.Left="168" Canvas.Top="4"/>
+
+                    <Label Content="Lisäpalvelut" HorizontalAlignment="Center" VerticalAlignment="Top" Width="144" Canvas.Left="11" Canvas.Top="145"/>
+                    <CheckBox Content="Pöydät ja tuolit" HorizontalAlignment="Left" VerticalAlignment="Center" Width="131" Canvas.Left="168" Canvas.Top="151"></CheckBox>
+                    <CheckBox Content="Videotykki" HorizontalAlignment="Left" VerticalAlignment="Center" Width="131" Canvas.Left="168" Canvas.Top="171"></CheckBox>
+                    <CheckBox Content="Päivittäinen siivous" HorizontalAlignment="Left" VerticalAlignment="Center" Width="131" Canvas.Left="168" Canvas.Top="191"></CheckBox>
+                </Canvas>
+
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" Height="292"
+                  Width="311"
+                  Header="Asiakkaan tiedot" Canvas.Top="26"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center" Canvas.Left="18">
+
+                <Canvas Margin="0,23,0,0">
+                    <Label Content="Hae asiakas rekisteristä" HorizontalAlignment="Center" Width="144" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="2"/>
+                    <ComboBox VerticalAlignment="Top" Width="120" Canvas.Left="168" Canvas.Top="4"/>
+                    <Label Content="Luo uusi asiakastieto" Width="144" Canvas.Left="10" Canvas.Top="43" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <Button Content="Lisää uusi asiakas" Width="120" Canvas.Left="168" Canvas.Top="46" VerticalAlignment="Top" HorizontalAlignment="Left"></Button>
+                    <Label FontStyle="Italic" Content="! Asiakkaan tiedot haetaan järjestelmästä." Width="266" Canvas.Left="10" Canvas.Top="71" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+                    <Canvas x:Name="astiedot" Height="236" Width="299" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Etunimi" Canvas.Left="10" Canvas.Top="95" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <Label Content="Sukunimi" Canvas.Left="10" Canvas.Top="118" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <Label Content="Puhelinnumero" Canvas.Left="10" Canvas.Top="141" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                        <Label Content="Katuosoite" Canvas.Left="10" Canvas.Top="164" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                        <Label Content="Postinumero" Canvas.Left="10" Canvas.Top="187" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                        <Label Content="Paikkakunta" Canvas.Left="10" Canvas.Top="210" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                        <TextBox Text ="{Binding Etunimi}" Canvas.Left="168" TextWrapping="Wrap" Canvas.Top="99" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                        <TextBox Text ="{Binding Sukunimi}" Canvas.Left="168" TextWrapping="Wrap" Canvas.Top="122" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                        <TextBox Text ="{Binding Puhelinnumero}" Canvas.Left="168" TextWrapping="Wrap" Canvas.Top="145" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBox>
+                        <TextBox Text ="{Binding Katu}" Canvas.Left="168" TextWrapping="Wrap" Canvas.Top="168" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                        <TextBox Text ="{Binding Postinumero}" x:Name="PostinumeroTextBox"  Canvas.Left="168" TextWrapping="Wrap" Canvas.Top="191" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBox>
+                        <TextBox Text ="{Binding Paikkakunta}" Canvas.Left="168" TextWrapping="Wrap" Canvas.Top="214" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBox>
+
+                    </Canvas>
+
+                </Canvas>
+
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" Height="292"
+            Width="270"
+            Header="Varauskalenteri"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center" Canvas.Left="680" Canvas.Top="26">
+
+                <Canvas Margin="0,10,0,-10">
+                    <Calendar HorizontalAlignment="Left" VerticalAlignment="Center" Height="210" Width="228" Canvas.Top="30" Canvas.Left="15"/>
+                </Canvas>
+            </GroupBox>
+
+            <Button Content="Suorita varaus" Width="166" Canvas.Left="402" Canvas.Top="333" VerticalAlignment="Top" HorizontalAlignment="Center" Height="25" Grid.Row="1"/>
+        </Canvas>
+    </Grid>
+</Window>

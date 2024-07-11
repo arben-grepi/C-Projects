@@ -1,0 +1,77 @@
+﻿<Window x:Class="Harjoitustyö.Asiakastiedot"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Harjoitustyö"
+        mc:Ignorable="d"
+        Title="Asiakastiedot" Height="690" Width="770" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:Lasku/>
+    </Window.DataContext>
+    <Canvas Margin="10,0,1150,479">
+
+
+        <Label Content="Rakennus Oy" Canvas.Left="35" Canvas.Top="47" FontSize="30" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Left" VerticalAlignment="Top" Height="86" Width="230"/>
+        <GroupBox x:Name="groupAsiakastiedot" Height="310" Width="655" Header="Asiakastiedot" Canvas.Left="35" Canvas.Top="319" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="12">
+            <Canvas Height="298" VerticalAlignment="Top" Margin="-10,0,-2,0">
+                <Label Content="Hae asiakas ID num. perusteella" HorizontalContentAlignment="Left" VerticalAlignment="Top" 
+               FontSize="16" Canvas.Left="31" Canvas.Top="50" Width="236" HorizontalAlignment="Center"/>
+
+                <Button x:Name="btnPeruuta" Content="Peruuta" Canvas.Left="349" Canvas.Top="249" Click="Peruuta_click" HorizontalAlignment="Center" VerticalAlignment="Top" Width="95" Height="23"/>
+                <Label Content="Nimi" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="320" Canvas.Top="71" FontSize="14" FontWeight="Bold"/>
+
+                <Label x:Name="lblNimi" Content="{Binding Nimi}" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="409" Canvas.Top="73" FontWeight="Bold" Width="147" RenderTransformOrigin="0.261,1.808" Height="24"/>
+
+                <Label Content="Osoite" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="320" Canvas.Top="105" FontSize="14" FontWeight="Bold"/>
+
+                <Label x:Name="lblAsiakas_ID" Content="{Binding Asiakas_ID}" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="409" Canvas.Top="41" FontSize="14" FontWeight="Bold"/>
+
+                <TextBox x:Name="txtOsoite" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" 
+                 VerticalAlignment="Top" Width="160" Canvas.Left="409" Canvas.Top="109" Height="20" KeyDown="KeyDown_TextOsoite"/>
+                <Label x:Name="lblOsoite" Content="{Binding Osoite}" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Left="409" Canvas.Top="106" FontWeight="Bold" Width="137"/>
+
+                <TextBox x:Name="txtNimi" HorizontalAlignment="Center" TextWrapping="Wrap" 
+                 Text="{Binding Nimi}" VerticalAlignment="Top" Width="160" Canvas.Left="409" Canvas.Top="75" Height="20" KeyDown="KeyDown_txtNimi"/>
+
+                <ComboBox x:Name="comIDnum" Canvas.Left="180" Canvas.Top="85" Width="72" HorizontalAlignment="Center" VerticalAlignment="Top" DropDownClosed="comIDnum_dropdownclosed" Height="22"/>
+                <Label Content="Asiakas ID" Canvas.Left="320" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <Label HorizontalContentAlignment="Left" Content="Hae asiakas nimen perusteella" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="40" Canvas.Top="131" FontSize="16" Width="230" />
+                <ComboBox x:Name="comNimi" Canvas.Left="60" Canvas.Top="167" Width="194" HorizontalContentAlignment="Center" DropDownClosed="comNImi_dropdownclosed" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22"/>
+                <Button x:Name="btnTallenna" Content="Tallenna" Canvas.Left="350" Canvas.Top="190" Height="45" Width="95" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" FontWeight="Bold" Click="Tallenna_Asiakas_click"/>
+                <Button x:Name="btnLuo_uusi_asiakas" Content="Luo uusi asiakas" Canvas.Left="348" Canvas.Top="202" Height="58
+                        " Width="97" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Click="Luo_uusi_Asiakas_click"/>
+                <Label x:Name="lblLaskut" Content="Laskut" Canvas.Left="320" Canvas.Top="137" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Label x:Name="lblAsiakkaanLaskut" Content="Laskut" Canvas.Left="409" Canvas.Top="138" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.704,0.457"/>
+
+
+                <Label Content="HAE ASIAKAS" Canvas.Left="10" Canvas.Top="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="143" FontSize="20" FontWeight="Bold"/>
+                <Label x:Name="lblAsennetaan_automaattisesti" Content="Asetetaan Automaattisesti" Canvas.Left="407" Canvas.Top="41" HorizontalAlignment="Center" VerticalAlignment="Top" Width="147" FontSize="10"/>
+                <Button x:Name="btnMuokkaaAsiakasta" Content="Muokkaa" Canvas.Left="450" Canvas.Top="202" HorizontalAlignment="Left" VerticalAlignment="Center" Width="95" Height="24" Click="MuokkaaAsiakasta_click"/>
+                <Button x:Name="btnPoista_Asiakas" Content="Poista asiakas" Canvas.Left="450" Canvas.Top="231" HorizontalAlignment="Left" VerticalAlignment="Top" Width="95" Height="25" IsCancel="True" Click="Poista_Asiakas_click"/>
+
+            </Canvas>
+
+        </GroupBox>
+
+        <GroupBox Height="215" Header="Tuotteet" Width="140" Canvas.Left="40" Canvas.Top="104" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Canvas Height="175" Margin="0,0,-2,0">
+                <Button x:Name="btnTuotteet_Hae_Tuotteet" Content="Hae tuotteet" Canvas.Top="32" Height="38" Width="110" Click="Hae_Tuotteet_click" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="10" Canvas.Left="10" />
+
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="groupLasku" Canvas.Left="185" Canvas.Top="104" Height="215" Width="500" HorizontalAlignment="Center" VerticalAlignment="Top" Header="Lasku">
+            <Canvas Height="180" Margin="0,0,-2,0">
+                <Label Content="Kaikki laskut" Canvas.Left="359" HorizontalAlignment="Left" VerticalAlignment="Top" Width="77" Canvas.Top="26"/>
+                <ComboBox x:Name="comSelaaKaikkiaLaskuja" Canvas.Left="58" Canvas.Top="57" Width="378" HorizontalAlignment="Left" VerticalAlignment="Top" DropDownClosed="comSelaaKaikkiLaskut_closed"/>
+                <Button x:Name="lblLuo_Lasku" Content="Luo uusi lasku" Canvas.Top="130" Height="40" Width="117" FontWeight="Bold" FontSize="9" Canvas.Left="319" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Luo_Lasku_click"  />
+                <Button x:Name="lblMuokkaaLaskua" Content="Tarkastele / Muokkaa" Canvas.Left="164" Canvas.Top="130" Height="40" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center" Click="MuokkaaLaskua_Click"/>
+            </Canvas>
+
+        </GroupBox>
+
+
+    </Canvas>
+
+
+</Window>

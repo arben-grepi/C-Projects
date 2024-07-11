@@ -1,0 +1,23 @@
+﻿<Window x:Class="SäikeetDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SäikeetDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="700">
+    <Grid>
+        <StackPanel>
+            <Button Content="No extra Thread" Click="NoextraThreadClick"/>
+            
+            <Button Content="With extra Thread" Click="WithExtraThreadClick"/>
+
+            <Button Content="Async / Await " Click="AsyncAwaitClick"/>
+
+            <Button Content="Load file Async" Click="LoadFileAsyncClick"/>
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>

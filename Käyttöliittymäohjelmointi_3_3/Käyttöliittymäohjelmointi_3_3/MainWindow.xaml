@@ -1,0 +1,35 @@
+﻿<Window x:Class="Käyttöliittymäohjelmointi_3_3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Käyttöliittymäohjelmointi_3_3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1200">
+    <Grid>
+
+        <Canvas x:Name="drawingCanvas" KeyDown="canvasKeyDown" Focusable="true">
+
+
+            <StackPanel Orientation="Horizontal" Canvas.Right="60" Canvas.Bottom="60" 
+                        Height="90" Canvas.Left="567" HorizontalAlignment="Center" 
+                        Canvas.Top="453" VerticalAlignment="Top" Width="623">
+                <Label x:Name="label1" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label2" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label3" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label4" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label5" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label6" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label7" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label8" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label9" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label10" Content="*" FontSize="50" Margin="0,0,10,0"/>
+                <Label x:Name="label11" Content="*" FontSize="50" Margin="0,0,10,0"/>
+
+
+            </StackPanel>
+
+        </Canvas>
+
+    </Grid>
+</Window>
